@@ -879,6 +879,10 @@ define('BLOG_ID_CURRENT_SITE', 1);
 	 */
 	private function get_download_url($version, $locale = 'en_US', $file_type = 'zip')
 	{
+		if ( 'nightly' === $version ) {
+			return 'http://wordpress.org/nightly-builds/wordpress-latest.tar.gz';
+		}
+
 		if ('en_US' === $locale) {
 			$url = 'https://wordpress.org/wordpress-' . $version . '.' . $file_type;
 
